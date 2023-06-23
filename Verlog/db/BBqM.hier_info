@@ -1,0 +1,332 @@
+|BBqM
+CLK => CLK.IN1
+reset => reset.IN5
+enter_queue => enter_queue.IN1
+leave_queue => leave_queue.IN1
+tcount[0] => tcount[0].IN1
+tcount[1] => tcount[1].IN1
+full_led <= Flags:led_flag.port5
+empty_led <= Flags:led_flag.port6
+alarm <= Flags:led_flag.port7
+Segement1[0] <= all_in_one_display:display.port2
+Segement1[1] <= all_in_one_display:display.port2
+Segement1[2] <= all_in_one_display:display.port2
+Segement1[3] <= all_in_one_display:display.port2
+Segement1[4] <= all_in_one_display:display.port2
+Segement1[5] <= all_in_one_display:display.port2
+Segement1[6] <= all_in_one_display:display.port2
+Segement2[0] <= all_in_one_display:display.port3
+Segement2[1] <= all_in_one_display:display.port3
+Segement2[2] <= all_in_one_display:display.port3
+Segement2[3] <= all_in_one_display:display.port3
+Segement2[4] <= all_in_one_display:display.port3
+Segement2[5] <= all_in_one_display:display.port3
+Segement2[6] <= all_in_one_display:display.port3
+Segement3[0] <= all_in_one_display:display.port4
+Segement3[1] <= all_in_one_display:display.port4
+Segement3[2] <= all_in_one_display:display.port4
+Segement3[3] <= all_in_one_display:display.port4
+Segement3[4] <= all_in_one_display:display.port4
+Segement3[5] <= all_in_one_display:display.port4
+Segement3[6] <= all_in_one_display:display.port4
+
+
+|BBqM|clock_divider:clk_div
+clk => count[0].CLK
+clk => count[1].CLK
+clk => count[2].CLK
+clk => count[3].CLK
+clk => count[4].CLK
+clk => count[5].CLK
+clk => count[6].CLK
+clk => count[7].CLK
+clk => count[8].CLK
+clk => count[9].CLK
+clk => count[10].CLK
+clk => count[11].CLK
+clk => count[12].CLK
+clk => count[13].CLK
+clk => count[14].CLK
+clk => count[15].CLK
+clk => count[16].CLK
+clk => count[17].CLK
+clk => count[18].CLK
+clk => count[19].CLK
+clk => count[20].CLK
+clk => count[21].CLK
+clk => count[22].CLK
+clk => CLK10ms~reg0.CLK
+reset => count[0].ACLR
+reset => count[1].ACLR
+reset => count[2].ACLR
+reset => count[3].ACLR
+reset => count[4].ACLR
+reset => count[5].ACLR
+reset => count[6].ACLR
+reset => count[7].ACLR
+reset => count[8].ACLR
+reset => count[9].ACLR
+reset => count[10].ACLR
+reset => count[11].ACLR
+reset => count[12].ACLR
+reset => count[13].ACLR
+reset => count[14].ACLR
+reset => count[15].ACLR
+reset => count[16].ACLR
+reset => count[17].ACLR
+reset => count[18].ACLR
+reset => count[19].ACLR
+reset => count[20].ACLR
+reset => count[21].ACLR
+reset => count[22].ACLR
+reset => CLK10ms~reg0.ACLR
+CLK10ms <= CLK10ms~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BBqM|flip_flop:upflip
+reset => flip_out~reg0.ACLR
+flip_in => flip_out~reg0.DATAIN
+clk => flip_out~reg0.CLK
+flip_out <= flip_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BBqM|flip_flop:downflip
+reset => flip_out~reg0.ACLR
+flip_in => flip_out~reg0.DATAIN
+clk => flip_out~reg0.CLK
+flip_out <= flip_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BBqM|UpDownCounter_FSM:updowncount
+clk => pcount[0]~reg0.CLK
+clk => pcount[1]~reg0.CLK
+clk => pcount[2]~reg0.CLK
+reset => pcount[0]~reg0.ACLR
+reset => pcount[1]~reg0.ACLR
+reset => pcount[2]~reg0.ACLR
+PUSH_UP => pcount.OUTPUTSELECT
+PUSH_UP => pcount.OUTPUTSELECT
+PUSH_UP => pcount.OUTPUTSELECT
+PUSH_DOWN => pcount.OUTPUTSELECT
+PUSH_DOWN => pcount.OUTPUTSELECT
+PUSH_DOWN => pcount.OUTPUTSELECT
+pcount[0] <= pcount[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+pcount[1] <= pcount[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+pcount[2] <= pcount[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BBqM|Flags:led_flag
+clk => alarm~reg0.CLK
+clk => full_flag~reg0.CLK
+clk => empty_flag~reg0.CLK
+reset => alarm~reg0.ACLR
+reset => full_flag~reg0.ACLR
+reset => empty_flag~reg0.PRESET
+up_count => always0.IN1
+up_count => always0.IN1
+down_count => always0.IN1
+down_count => always0.IN1
+pcount[0] => Equal0.IN2
+pcount[0] => Equal1.IN31
+pcount[1] => Equal0.IN1
+pcount[1] => Equal1.IN30
+pcount[2] => Equal0.IN0
+pcount[2] => Equal1.IN29
+full_flag <= full_flag~reg0.DB_MAX_OUTPUT_PORT_TYPE
+empty_flag <= empty_flag~reg0.DB_MAX_OUTPUT_PORT_TYPE
+alarm <= alarm~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BBqM|Rom:rom
+addr[0] => Mux4.IN8
+addr[0] => Mux4.IN9
+addr[0] => Mux4.IN10
+addr[0] => Decoder1.IN4
+addr[0] => Decoder2.IN3
+addr[0] => rom.RADDR
+addr[1] => Mux3.IN8
+addr[1] => Mux3.IN9
+addr[1] => Mux3.IN10
+addr[1] => Decoder0.IN3
+addr[1] => Decoder1.IN3
+addr[1] => Decoder2.IN2
+addr[1] => rom.RADDR1
+addr[2] => Mux2.IN8
+addr[2] => Mux2.IN9
+addr[2] => Mux2.IN10
+addr[2] => Decoder0.IN2
+addr[2] => Decoder1.IN2
+addr[2] => rom.RADDR2
+addr[3] => Mux0.IN5
+addr[3] => Mux1.IN4
+addr[3] => Mux1.IN5
+addr[3] => Mux2.IN7
+addr[3] => Mux3.IN7
+addr[3] => Mux4.IN7
+addr[3] => Decoder0.IN1
+addr[3] => Decoder1.IN1
+addr[3] => Decoder2.IN1
+addr[3] => rom.RADDR3
+addr[4] => Mux0.IN3
+addr[4] => Mux0.IN4
+addr[4] => Mux1.IN3
+addr[4] => Mux2.IN6
+addr[4] => Mux3.IN6
+addr[4] => Mux4.IN6
+addr[4] => Decoder0.IN0
+addr[4] => Decoder1.IN0
+addr[4] => Decoder2.IN0
+addr[4] => rom.RADDR4
+wtime[0] <= rom.DATAOUT
+wtime[1] <= rom.DATAOUT1
+wtime[2] <= rom.DATAOUT2
+wtime[3] <= rom.DATAOUT3
+wtime[4] <= rom.DATAOUT4
+
+
+|BBqM|all_in_one_display:display
+pcount[0] => pcount[0].IN1
+pcount[1] => pcount[1].IN1
+pcount[2] => pcount[2].IN1
+pcount[3] => pcount[3].IN1
+wtime[0] => Mod0.IN8
+wtime[0] => Div0.IN8
+wtime[1] => Mod0.IN7
+wtime[1] => Div0.IN7
+wtime[2] => Mod0.IN6
+wtime[2] => Div0.IN6
+wtime[3] => Mod0.IN5
+wtime[3] => Div0.IN5
+wtime[4] => Mod0.IN4
+wtime[4] => Div0.IN4
+Segement1[0] <= decoder_7seg:Seg_pcount.port10
+Segement1[1] <= decoder_7seg:Seg_pcount.port9
+Segement1[2] <= decoder_7seg:Seg_pcount.port8
+Segement1[3] <= decoder_7seg:Seg_pcount.port7
+Segement1[4] <= decoder_7seg:Seg_pcount.port6
+Segement1[5] <= decoder_7seg:Seg_pcount.port5
+Segement1[6] <= decoder_7seg:Seg_pcount.port4
+Segement2[0] <= decoder_7seg:Seg_wtime1.port10
+Segement2[1] <= decoder_7seg:Seg_wtime1.port9
+Segement2[2] <= decoder_7seg:Seg_wtime1.port8
+Segement2[3] <= decoder_7seg:Seg_wtime1.port7
+Segement2[4] <= decoder_7seg:Seg_wtime1.port6
+Segement2[5] <= decoder_7seg:Seg_wtime1.port5
+Segement2[6] <= decoder_7seg:Seg_wtime1.port4
+Segement3[0] <= decoder_7seg:Seg_wtime2.port10
+Segement3[1] <= decoder_7seg:Seg_wtime2.port9
+Segement3[2] <= decoder_7seg:Seg_wtime2.port8
+Segement3[3] <= decoder_7seg:Seg_wtime2.port7
+Segement3[4] <= decoder_7seg:Seg_wtime2.port6
+Segement3[5] <= decoder_7seg:Seg_wtime2.port5
+Segement3[6] <= decoder_7seg:Seg_wtime2.port4
+
+
+|BBqM|all_in_one_display:display|decoder_7seg:Seg_pcount
+A => led_a.IN0
+A => led_d.IN1
+A => led_f.IN1
+A => led_g.IN1
+B => led_a.IN0
+B => led_c.IN0
+B => led_d.IN0
+B => led_f.IN0
+B => led_a.IN0
+B => led_b.IN1
+B => led_d.IN0
+C => led_a.IN1
+C => led_b.IN0
+C => led_d.IN0
+C => led_d.IN1
+C => led_b.IN0
+C => led_c.IN1
+C => led_d.IN1
+D => led_a.IN1
+D => led_b.IN1
+D => led_c.IN1
+D => led_d.IN1
+D => led_a.IN1
+D => led_b.IN1
+D => led_d.IN1
+D => led_f.IN1
+led_a <= led_a.DB_MAX_OUTPUT_PORT_TYPE
+led_b <= led_b.DB_MAX_OUTPUT_PORT_TYPE
+led_c <= led_c.DB_MAX_OUTPUT_PORT_TYPE
+led_d <= led_d.DB_MAX_OUTPUT_PORT_TYPE
+led_e <= led_d.DB_MAX_OUTPUT_PORT_TYPE
+led_f <= led_f.DB_MAX_OUTPUT_PORT_TYPE
+led_g <= led_g.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BBqM|all_in_one_display:display|decoder_7seg:Seg_wtime1
+A => led_a.IN0
+A => led_d.IN1
+A => led_f.IN1
+A => led_g.IN1
+B => led_a.IN0
+B => led_c.IN0
+B => led_d.IN0
+B => led_f.IN0
+B => led_a.IN0
+B => led_b.IN1
+B => led_d.IN0
+C => led_a.IN1
+C => led_b.IN0
+C => led_d.IN0
+C => led_d.IN1
+C => led_b.IN0
+C => led_c.IN1
+C => led_d.IN1
+D => led_a.IN1
+D => led_b.IN1
+D => led_c.IN1
+D => led_d.IN1
+D => led_a.IN1
+D => led_b.IN1
+D => led_d.IN1
+D => led_f.IN1
+led_a <= led_a.DB_MAX_OUTPUT_PORT_TYPE
+led_b <= led_b.DB_MAX_OUTPUT_PORT_TYPE
+led_c <= led_c.DB_MAX_OUTPUT_PORT_TYPE
+led_d <= led_d.DB_MAX_OUTPUT_PORT_TYPE
+led_e <= led_d.DB_MAX_OUTPUT_PORT_TYPE
+led_f <= led_f.DB_MAX_OUTPUT_PORT_TYPE
+led_g <= led_g.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BBqM|all_in_one_display:display|decoder_7seg:Seg_wtime2
+A => led_a.IN0
+A => led_d.IN1
+A => led_f.IN1
+A => led_g.IN1
+B => led_a.IN0
+B => led_c.IN0
+B => led_d.IN0
+B => led_f.IN0
+B => led_a.IN0
+B => led_b.IN1
+B => led_d.IN0
+C => led_a.IN1
+C => led_b.IN0
+C => led_d.IN0
+C => led_d.IN1
+C => led_b.IN0
+C => led_c.IN1
+C => led_d.IN1
+D => led_a.IN1
+D => led_b.IN1
+D => led_c.IN1
+D => led_d.IN1
+D => led_a.IN1
+D => led_b.IN1
+D => led_d.IN1
+D => led_f.IN1
+led_a <= led_a.DB_MAX_OUTPUT_PORT_TYPE
+led_b <= led_b.DB_MAX_OUTPUT_PORT_TYPE
+led_c <= led_c.DB_MAX_OUTPUT_PORT_TYPE
+led_d <= led_d.DB_MAX_OUTPUT_PORT_TYPE
+led_e <= led_d.DB_MAX_OUTPUT_PORT_TYPE
+led_f <= led_f.DB_MAX_OUTPUT_PORT_TYPE
+led_g <= led_g.DB_MAX_OUTPUT_PORT_TYPE
+
+
