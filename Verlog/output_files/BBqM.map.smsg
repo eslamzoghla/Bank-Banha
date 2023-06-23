@@ -1,0 +1,1 @@
+Warning (10268): Verilog HDL information at clock_divider.v(9): always construct contains both blocking and non-blocking assignments File: C:/Users/DELL/Desktop/BBqM/clock_divider.v Line: 9
