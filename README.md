@@ -1,5 +1,5 @@
 # Bank-Banha
-This is Banha bank's system. Its content 2 different programming language (verlog, and C++)
+This is Banha bank's system. Its content 2 different programming language (verlog, and C)
 
 ## Abstract
 The purpose of the project is an embedded system to monitor the client queue in front of the tellers.
