@@ -1,0 +1,12 @@
+﻿  Source.c
+C:\Users\DELL\source\repos\Project2\Project2\Source.c(88,32): warning C4474: 'scanf_s' : too many arguments passed for format string
+C:\Users\DELL\source\repos\Project2\Project2\Source.c(88,32): message : placeholders and their parameters expect 1 variadic arguments, but 2 were provided
+C:\Users\DELL\source\repos\Project2\Project2\Source.c(92,37): warning C4474: 'scanf_s' : too many arguments passed for format string
+C:\Users\DELL\source\repos\Project2\Project2\Source.c(92,37): message : placeholders and their parameters expect 1 variadic arguments, but 2 were provided
+C:\Users\DELL\source\repos\Project2\Project2\Source.c(94,36): warning C4474: 'scanf_s' : too many arguments passed for format string
+C:\Users\DELL\source\repos\Project2\Project2\Source.c(94,36): message : placeholders and their parameters expect 1 variadic arguments, but 2 were provided
+C:\Users\DELL\source\repos\Project2\Project2\Source.c(104,29): warning C4474: 'scanf_s' : too many arguments passed for format string
+C:\Users\DELL\source\repos\Project2\Project2\Source.c(104,29): message : placeholders and their parameters expect 1 variadic arguments, but 2 were provided
+C:\Users\DELL\source\repos\Project2\Project2\Source.c(106,28): warning C4474: 'scanf_s' : too many arguments passed for format string
+C:\Users\DELL\source\repos\Project2\Project2\Source.c(106,28): message : placeholders and their parameters expect 1 variadic arguments, but 2 were provided
+  Project2.vcxproj -> C:\Users\DELL\source\repos\Project2\Debug\Project2.exe

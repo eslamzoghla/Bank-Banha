@@ -1,0 +1,11 @@
+﻿'Project2.exe' (Win32): Loaded 'C:\Users\DELL\source\repos\Project2\Debug\Project2.exe'. Symbols loaded.
+'Project2.exe' (Win32): Loaded 'C:\Windows\SysWOW64\ntdll.dll'. 
+'Project2.exe' (Win32): Loaded 'C:\Windows\SysWOW64\kernel32.dll'. 
+'Project2.exe' (Win32): Loaded 'C:\Windows\SysWOW64\KernelBase.dll'. 
+'Project2.exe' (Win32): Loaded 'C:\Windows\SysWOW64\vcruntime140d.dll'. 
+'Project2.exe' (Win32): Loaded 'C:\Windows\SysWOW64\ucrtbased.dll'. 
+The thread 0x1fe4 has exited with code 0 (0x0).
+The thread 0x5768 has exited with code -1073741510 (0xc000013a).
+The thread 0x4cc has exited with code -1073741510 (0xc000013a).
+The thread 0x3db8 has exited with code -1073741510 (0xc000013a).
+The program '[11868] Project2.exe' has exited with code -1073741510 (0xc000013a).
