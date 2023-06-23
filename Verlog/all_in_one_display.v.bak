@@ -1,0 +1,23 @@
+Display(pcount,wtime,Segement1,Segement2,Segement3);
+// -------------------------- Inputs Declarations ---------------------------- //
+  input [3:0]pcount;
+  input [4:0]wtime;
+// ------------------------- Outputs Declarations ---------------------------- //
+ output [6:0]Segement1;
+  output [6:0]Segement2;
+  output [6:0]Segement3;
+// --------------------------- Wire Declarations ----------------------------- // 
+ wire [3:0]digit1 = wtime % 10;
+  wire [3:0]digit2 = wtime / 10;
+// ------------------------- Instantiation Modules --------------------------- //
+// --------------------------------------------------------------------------- //
+//Instantiation of the 7Segement_Decoder
+   decoder_7seg Seg_pcount(pcount[3],pcount[2],pcount[1],pcount[0],Segement1[6],Segement1[5],Segement1[4],Segement1[3],Segement1[2],Segement1[1],Segement1[0]);  
+//Instantiation of the 7Segement_Decoder
+  decoder_7seg Seg_wtime1(digit1[3],digit1[2],digit1[1],digit1[0],Segement2[6],Segement2[5],Segement2[4],Segement2[3],Segement2[2],Segement2[1],Segement2[0]);
+    
+//Instantiation of the 7Segement_Decoder
+ decoder_7seg Seg_wtime2(digit2[3],digit2[2],digit2[1],digit2[0],Segement3[6],Segement3[5],Segement3[4],Segement3[3],Segement3[2],Segement3[1],Segement3[0]); 
+endmodule
+// ----------------------------- End of File --------------------------------- //
+// --------------------------------------------------------------------------- //
